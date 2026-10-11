@@ -1,0 +1,15 @@
+.DS_Store
+Thumbs.db
+~$*
+*.tmp
+.idea/
+.vscode/
+
+# Local scratchpad & intake (ignored to keep dedicated model repo clean)
+inbox/
+
+# Local AI workspace configuration & agent prompts
+.agents/
+
+# Provenance archive bundles
+*.bundle
