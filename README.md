@@ -2,10 +2,11 @@
 
 > A pragmatic, open reference architecture for modern enterprise landscapes.
 
-[![Version: v0.8](https://img.shields.io/badge/version-v0.8%20(Public%20Preview)-blue.svg)](model/specification.md)
+[![Version](https://img.shields.io/github/v/tag/enterprise-landscape/enterprise-landscape-model?label=version&color=blue)](model/specification.md)
+[![Status: Public Preview](https://img.shields.io/badge/status-Public%20Preview-informational.svg)](model/specification.md)
 [![Lizenz: CC BY 4.0](https://img.shields.io/badge/license-CC%20BY%204.0-green.svg)](LICENSE.md)
 
-**Klassifikation:** Enterprise Architecture Framework (nach ISO/IEC/IEEE 42010)  
+**Klassifikation:** Enterprise Architecture Framework  
 **Kern-Artefakt:** Kanonisches Referenzmodell  
 
 Hersteller- und branchenneutrales Referenzmodell, methodisches Diagnoseraster und praxistauglicher Ordnungsrahmen für nachhaltige, evolvierbare und zukunftsfähige Unternehmens- und Systemlandschaften.
@@ -18,7 +19,7 @@ Das **Enterprise Landscape Model (ELM)** definiert einen verbindlichen strukture
 
 ![Enterprise Landscape Reference Model](model/assets/enterprise-landscape-model.png)
 
-- **Spezifikation (SSoT):** [model/specification.md](model/specification.md)
+- **Kanonische Spezifikation:** [model/specification.md](model/specification.md)
 - **Vektor-Präsentationsvorlage:** [model/assets/enterprise-landscape-model.pptx](model/assets/enterprise-landscape-model.pptx)
 
 ---
@@ -45,7 +46,7 @@ enterprise-landscape-model/
 ├── LICENSE.md                                 # 100 % CC BY 4.0 Lizenzvereinbarung
 │
 ├── model/                                     # Das Kernmodell (Enterprise Landscape Model)
-│   ├── specification.md                       # Normative Spezifikation (Lean Metamodel, 5 Tiers, Gateways, Invarianten)
+│   ├── specification.md                       # Normative Spezifikation (Lean Metamodel, 5 Tiers, Gateways, Guiding Principles)
 │   ├── segments/                              # Schichten-Vertiefungen (z. B. business-layer.md)
 │   └── assets/                                # Grafiken & Präsentationsvorlagen
 │       ├── enterprise-landscape-model.png
@@ -70,10 +71,10 @@ enterprise-landscape-model/
 
 ## 4. Methodische Grundprinzipien
 
-1. **Die funktionale Triade:** Jedes Artefakt trennt explizit zwischen *Normativ* (Zielzustand), *Diagnostisch* (Evidenzen & Reifegrade) und *Kommunikativ* (Verständlichkeit für Entscheider).
-2. **Epistemische Disziplin:** Aussagen und Kriterien sind transparent ausgewiesen (`[E]` Etablierte Praxis, `[A]` Abgeleitet aus Praxisbefunden, `[H]` Diskursiv zu prüfende Hypothese; das kanonische Kernmodell spezifiziert ausschließlich gesicherte `[E]`- und `[A]`-Bausteine).
-3. **Das Modell ist die Single Source of Truth (Modell vor Folie):** Textuelle Spezifikationen in Markdown sind verbindlich. Folien (PPTX) und Diagramme (PNG) sind abgeleitete Präsentationssichten.
-4. **Strikte Mandantentrennung (Struktur vs. Instanz):** Das Modell ist 100 % hersteller- und kundenneutral. Mandantenspezifische Bewertungen und vertrauliche Befunde verbleiben in separaten Projekt-Repositories.
+1. **Die funktionale Triade:** Jedes Artefakt trennt strikt zwischen drei funktionalen Dimensionen: *Normativ* (verbindliche Zielzustände und Leitplanken), *Diagnostisch* (auditierbare Bewertungsmaßstäbe, Prüffragen und belegbare Evidenzen) sowie *Kommunikativ* (zielgruppengerechte Vermittlung über Rollen- und Disziplingrenzen hinweg).
+2. **Epistemische Disziplin:** Diagnostische Bewertungskriterien in thematischen Overlays und Architektur-Reviews weisen ihren Verbindlichkeitsstatus transparent aus: `[E]` (Etablierte Praxis aus Standards und Regulatorik), `[A]` (Abgeleitete Praxis aus empirischen Transformationsbefunden) oder `[H]` (Hypothese für explorative Entwürfe).
+3. **Lean Architecture (Pull vor Push):** Architektur dient der unmittelbaren Entscheidungs- und Handlungsfähigkeit, nicht der administrativen Selbstverwaltung. Modelle, Segmente und Overlays entstehen bedarfsorientiert entlang realer Fragestellungen und verzichten auf theoretische Vorratsmodellierung.
+4. **Soziotechnische Ausrichtung:** Fachdomänen (Bounded Contexts) bilden die primäre Strukturierungs- und Verantwortungsgrenze, an der Fachlichkeit (Capabilities und Prozesse), Software-Systeme und Datenhoheit (Domain Data Ownership) ausgerichtet werden.
 
 ---
 

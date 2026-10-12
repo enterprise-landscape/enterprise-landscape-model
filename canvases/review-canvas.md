@@ -54,7 +54,7 @@ Bei Bedarf zusätzliche Zeilen ergänzen. Beobachtung und Interpretation auseina
 
 | Baustein und Version | Verwendet als | Anpassung / Hinweis |
 |---|---|---|
-| [Enterprise Landscape Model](../model/specification.md) | Kanonische Prüflinse / Zielbild | Validierung der fünf Tiers, Gateways und Invarianten |
+| [Enterprise Landscape Model](../model/specification.md) | Kanonische Prüflinse / Zielbild | Validierung der fünf Tiers, Domänen, Gateways und Interaktionsregeln |
 | [z. B. Thematisches Overlay KI-Ready Systemlandschaften](../overlays/ai-readiness/ai-readiness-overlay.md) | [Themenspezifische Prüflinse, Analysehilfe, etc.] | [eintragen] |
 
 ---
