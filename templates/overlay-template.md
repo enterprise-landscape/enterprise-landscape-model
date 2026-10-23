@@ -58,25 +58,25 @@ Ein Overlay erfindet kein eigenes Schichtenmodell, sondern dockt direkt an die T
 
 | Tier im Referenzmodell | Spezifische Soll-Eigenschaften / Bausteine | Prüfdomäne |
 |---|---|---|
-| **Tier 1: Governance** | [z. B. Compliance-by-Design, Risikoklassen, Rollenmodelle, Standards] | [D...] |
-| **Tier 2: Business Layer** | [z. B. Capability-Zuschnitt, Human-in-the-Loop, Wertstromgrenzen, Experience] | [D...] |
-| **Tier 3: System Layer** | [z. B. Service-Autonomie, Workflow-Orchestrierung, Integration & APIs] | [D...] |
-| **Tier 4: Data Layer** | [z. B. Domänen-Ownership (DDD), Semantik (Data Contracts, Schemata), Datenprodukte (operativ & analytisch)] | [D...] |
-| **Tier 5: Foundation** | [z. B. Runtime, Observability, Telemetrie, Secrets & Identity, Storage] | [D...] |
+| **Tier 1: Guidance** | [z. B. Vision & Strategy, People, Culture & Organization, Policies, Guardrails & Blueprints, Trust, Risk & Compliance] | [D...] |
+| **Tier 2: Business Layer** | [z. B. Value Streams, Business Capabilities, Business Processes, Experience (Gateway)] | [D...] |
+| **Tier 3: System Layer** | [z. B. Workflows & Orchestration, Services & Applications, Integration (Gateway)] | [D...] |
+| **Tier 4: Data Layer** | [z. B. Semantics & Ontology, Data Contracts, Data Products] | [D...] |
+| **Tier 5: Foundation** | [z. B. Platform & Infrastructure, Data Storage & Management, Analytics Platform & Tooling, Observability & Resilience, Security & Identity] | [D...] |
 | **Guiding Principles (Pillar)** | [Themenspezifische Schärfung der Entscheidungsleitplanken] | [Querschnitt] |
 
 ---
 
-## 5. Diagnostisches Messgitter (Reifegrade & Evidenzen)
+## 5. Kriterienkatalog (Bewertungsstufen & Evidenzen)
 
 Für jede Prüfdomäne werden stufenweise, **binär prüfbare Stufenkriterien** definiert (Vermeidung von meinungsbasierten Audits):
 
 ### Domäne 1: [Name der Domäne, z. B. Daten & Semantik]
 - **KI-/Target-Ready Mindestkriterium [E/A/H]:** [Konkrete Bedingung]
-- **Reifegradleiter:**
+- **Bewertungsstufen:**
   - **Level 1 (Initial):** [Stufenkriterium]
   - **Level 2 (Wiederholbar):** [Stufenkriterium]
-  - **Level 3 (Target-Ready):** [Stufenkriterium — Mindestanforderung]
+  - **Level 3 (Target-Ready):** [Stufenkriterium, Mindestanforderung]
   - **Level 4 (Optimiert/Native):** [Stufenkriterium]
 - **Benötigte Evidenzarten:** [z. B. Datenverträge im Git-Repo, Schemata, CI/CD-Pipelines, Monitoring-Dashboards]
 

@@ -34,7 +34,7 @@ Als interdisziplinäre Disziplin verbindet das Enterprise Architecture Managemen
 
 | Zielgruppe | Adressierte Stakeholder Concerns | Primärer architektonischer Nutzen | Relevanter Modellfokus |
 |---|---|---|---|
-| **Executive & Steering** | Investitionssicherheit, Portfoliotransparenz, strategische Handlungsfähigkeit, regulatorische Compliance | Makro-Transparenz über Abhängigkeiten und Zukunftsfähigkeit der Landschaft; fundierte Entscheidungsgrundlage für Budgetierung und Governance ohne Detailballast. | Tier 1 (Governance), Guiding Principles |
+| **Executive & Steering** | Investitionssicherheit, Portfoliotransparenz, strategische Handlungsfähigkeit, regulatorische Compliance | Makro-Transparenz über Abhängigkeiten und Zukunftsfähigkeit der Landschaft; fundierte Entscheidungsgrundlage für Budgetierung und strategische Steuerung ohne Detailballast. | Tier 1 (Guidance), Guiding Principles |
 | **Business & Product** | Time-to-Market, Reaktionsgeschwindigkeit auf Marktveränderungen, funktionale Differenzierung, organisatorische Autonomie | Klare Zuordnung von Fähigkeiten (Capabilities) zu Wertströmen; fachliche Autonomie und gezielte Kapselung von Domänen zur Reduzierung organisatorischer Abhängigkeiten. | Tier 2 (Business Layer), Experience Gateway |
 | **Architecture & Engineering** | Evolvierbarkeit, Wartbarkeit, Interoperabilität, Beherrschung von Systemkomplexität, Steuerung von Kopplungsrisiken und technischen Schulden | Verbindliche System- und Integrationsgrenzen; strukturierte Entkopplung über Gateways und definierte Schichtenbeziehungen zur Vermeidung unkontrollierter Punkt-zu-Punkt-Verbindungen. | Tier 3 (System Layer), Integration Gateway |
 | **Data Architecture & Analytics** | Verlässliche Datenqualität, klare Datenverantwortung, semantische Eindeutigkeit, Stabilität domänenübergreifender Datenflüsse | Ablösung monolithischer Datensilos durch Domain Data Ownership; Durchsetzung maschinenlesbarer Data Contracts und verlässlich operationalisierter Datenprodukte. | Tier 4 (Data Layer), Domäne (Bounded Context) |
@@ -73,8 +73,8 @@ In Segmenten (`segments/`), thematischen Overlays (`overlays/`) und Architektur-
 
 Das Enterprise Landscape Reference Model folgt dem architektonischen Zoom-in / Zoom-out Prinzip und lässt sich über zwei standardisierte Erweiterungsmechanismen präzise skalieren:
 
-1. **Segment-Architekturen (`segments/` — Zoom-in):** Vertikale Tiefenschnitte in einzelne Schichten oder Domänen (z. B. der detaillierte Capability-Zuschnitt im Business Layer).
-2. **Thematische Overlays (`overlays/` — Zoom-out & Querschnitt):** Transversale Projektionen spezifischer Fragestellungen über alle Schichten des Modells (z. B. [AI-Readiness](../overlays/ai-readiness/ai-readiness-overlay.md), Cloud-Native, Resilienz).
+1. **Segment-Architekturen (`segments/`, Zoom-in):** Vertikale Tiefenschnitte in einzelne Schichten oder Domänen (z. B. der detaillierte Capability-Zuschnitt im Business Layer).
+2. **Thematische Overlays (`overlays/`, Zoom-out & Querschnitt):** Transversale Projektionen spezifischer Fragestellungen über alle Schichten des Modells (z. B. [AI-Readiness](../overlays/ai-readiness/ai-readiness-overlay.md), Cloud-Native, Resilienz).
 
 ---
 
@@ -90,7 +90,11 @@ Das Metamodell besteht aus zwei orthogonalen Komponenten:
 
 | ELM Metaklasse | Ontologische Kategorie | Semantische Definition & Rolle |
 |---|---|---|
-| **`GovernanceDirective`** | Steuerung | Verbindliche Richtlinie, Technologiestack-Vorgabe, Compliance-Regel oder RACI-Rolle |
+| **`StrategicObjective`** | Steuerung (Guidance) | Unternehmens- und Architektur-Vision, strategisches Zielbild oder Portfolio-Vorgabe (`Vision & Strategy`) |
+| **`OrganizationalUnit`** | Steuerung (Guidance) | Soziotechnische Einheit, Team-Topologie oder Rollen- und Ownership-Profil (`People, Culture & Organization`) |
+| **`EnterpriseGuardrail`** | Steuerung (Guidance) | Verbindliche Unternehmens- und Architektur-Policy, operative Landschafts-Guardrail oder Referenz-Blueprint (`Policies, Guardrails & Blueprints`) |
+| **`ComplianceRequirement`** | Steuerung (Guidance) | Vertrauens- und Ethik-Anspruch, risikobasierter Schutzbedarf oder regulatorische Vorgabe (`Trust, Risk & Compliance`) |
+| **`GuidingPrinciple`** | Leitprinzipien | Übergreifende architektonische Gestaltungsmaxime und Entscheidungsheuristik bei Zielkonflikten (`Guiding Principles`) |
 | **`ValueStream`** | Business | Sequenz von wertschöpfenden Schritten zur Erbringung eines Kundennutzens (End-to-End) |
 | **`BusinessCapability`** | Business | Stabile, technologie- und organisationsneutrale Geschäftsfähigkeit („Was tut das Unternehmen?“) |
 | **`BusinessProcess`** | Business | Fachlicher Ablauf mit definierter Ausführungslogik, Vorbedingungen und Prozesszielen |
@@ -108,11 +112,10 @@ Das Metamodell besteht aus zwei orthogonalen Komponenten:
 
 | Metamodell-Relation | Semantische Definition | Architektonischer Geltungsbereich |
 |---|---|---|
-| **`owns`** | Strukturelle Klammer und soziotechnische Verantwortung (Domain Ownership). | Soziotechnische Eigentümergrenzen auf alle Elemente innerhalb desselben Kontextes |
-| **`governs`** | Normative Steuerung, Richtlinie, architektonische Restriktion oder Vorgabe. | Richtliniengebende und regulierende Instanzen auf operative und infrastrukturelle Elemente |
-| **`realizes`** | Strukturelle Erfüllung und Operationalisierung einer abstrakteren fachlichen Entität. | Ausführende und operationalisierende Elemente auf fachliche und konzeptionelle Elemente |
-| **`enables`** | Bereitstellung funktionaler, informationeller oder infrastruktureller Grundlagen (Serving). | Bereitstellende Fundamente und Datenbestände auf abhängige oder wertschöpfende Elemente |
-| **`utilizes`** | Operative Nutzung, Konsum von Schnittstellen, Datenbeständen oder Ressourcen. | Operative Konsumenten auf horizontal oder vertikal bereitgestellte Services, Produkte oder Plattformdienste |
+| **`owns`** | Strukturelle Klammer und eindeutige soziotechnische Verantwortung (Domain Ownership). | Soziotechnische Eigentümergrenzen (`Domain`) auf alle gekapselten Elemente innerhalb desselben Bounded Context (`BusinessCapability`, `BusinessProcess`, `Workflow`, `Application`, `SemanticEntity`, `DataContract`, `DataProduct`) |
+| **`guides`** | Strategische Orientierung, organisatorische Rahmung, verbindliche Leitplanke oder regulatorische Vorgabe. | Übergreifende Leitprinzipien (`GuidingPrinciple`) auf die Leitplanken in Tier 1 (`EnterpriseGuardrail`) sowie steuernde und regulierende Instanzen (`StrategicObjective`, `OrganizationalUnit`, `EnterpriseGuardrail`, `ComplianceRequirement`) auf Domänen und alle fachlichen, operativen und infrastrukturellen Elemente (Tier 2 bis 5) |
+| **`enables`** | Bereitstellung funktionaler, operativer, informationeller oder infrastruktureller Grundlagen (Serving). | Dienende und ausführende Elemente auf darüberliegende Schichten: Plattformfähigkeiten (Tier 5) auf Systeme und Daten (Tier 3/4), Datenprodukte und Semantik (Tier 4) auf Systeme, Fachlichkeit und Steuerung (Tier 3, 2, 1) sowie Systeme und Workflows (Tier 3) auf Geschäftsprozesse und Geschäftsfähigkeiten (Tier 2) |
+| **`utilizes`** | Operative Nutzung, Konsum von Schnittstellen, Systemen, Datenbeständen oder Plattformressourcen. | Konsumierende Elemente auf vertikal oder horizontal bereitgestellte Fähigkeiten, Services, Datenprodukte oder Plattformdienste (komplementäre Gegenrichtung zu `enables`) |
 
 ---
 
@@ -123,7 +126,7 @@ Das Metamodell besteht aus zwei orthogonalen Komponenten:
 Das Referenzmodell gliedert die Unternehmenslandschaft in **fünf strukturelle Schichten (Tiers)**, **zwei Gateway-Schnittstellen** und übergreifende **Leitprinzipien (Guiding Principles)**:
 
 - **Horizontale Rahmung:**
-  - **Tier 1: Governance:** Strategischer, normativer und regulatorischer Steuerungsrahmen.
+  - **Tier 1: Guidance:** Strategischer, soziotechnischer, normativer und regulatorischer Orientierungs- und Steuerungsrahmen (vereint richtungsgebendes Enablement mit verbindlichen Leitplanken).
   - **Tier 5: Foundation:** Technologisches Betriebs- und Plattformfundament.
 - **Operativer Kern (Der funktionale Dreiklang):**
   - **Tier 2: Business Layer:** Fachliche Wertschöpfung, Geschäftsfähigkeiten und Geschäftsprozesse.
@@ -134,24 +137,24 @@ Das Referenzmodell gliedert die Unternehmenslandschaft in **fünf strukturelle S
   - **Experience** (Tier 2/4): Kanal- und Nutzerentkopplung für menschliche Akteure und Agenten.
   - **Integration** (Tier 3/4): System- und Partnerentkopplung für maschinelle Schnittstellen.
 - **Steuerungsrahmen:**
-  - **Guiding Principles:** Übergreifende architektonische Entscheidungsleitplanken für Organisation, Applikationen/Daten und Plattform/Sicherheit.
+  - **Guiding Principles:** Übergreifende architektonische Entscheidungsheuristiken und Gestaltungsmaximen für Business & Organization, Application & Data sowie Platform & Security.
 
 ### 3.1 Topologie und Raumaufteilung der Referenzarchitektur
 
 Die visuelle Komposition des ELM folgt einer strikten funktionalen Raumaufteilung:
 
 1. **Horizontale Rahmung:**  
-   - **Tier 1 (Governance)** bildet das strategische Dach.  
+   - **Tier 1 (Guidance)** bildet das strategische, organisatorische und normative Dach.  
    - **Tier 5 (Foundation)** stellt das gemeinsame technologische Betriebs- und Plattformfundament bereit.
 2. **Die funktionale Dreiteilung des operativen Raums:**  
-   Der Raum zwischen Governance und Foundation teilt sich in drei gleichwertige funktionale Sektoren:
-   - **Obere Zone (Tier 2 Business Layer):** Fachliche Wertschöpfung, Wertströme, Capabilities und Geschäftsprozesse.
+   Der Raum zwischen Guidance und Foundation teilt sich in drei gleichwertige funktionale Sektoren:
+   - **Obere Zone (Tier 2 Business Layer):** Fachliche Wertschöpfung, Value Streams, Business Capabilities und Business Processes.
    - **Untere Zone (Tier 3 System Layer):** Operative Software-Systeme, Services und technische Ablaufsteuerung.
-   - **Rechte Zone (Tier 4 Data Layer):** Semantik, maschinenlesbare Schemata, Data Contracts und Datenprodukte (beschriftet über das vertikale Tab-Label rechts).
+   - **Rechte Zone (Tier 4 Data Layer):** Semantik, maschinenlesbare Schemata, Data Contracts und Data Products (beschriftet über das vertikale Tab-Label rechts).
 3. **Der Konvergenzpunkt im Zentrum (Die Domäne):**  
    Dort, wo die Trennlinien der drei Sektoren im Zentrum zusammenlaufen, sitzt das architektonische Alignment: Hier manifestiert sich die **Domäne (der Bounded Context)** als soziotechnische Schnittmenge, die Fachlichkeit, Software und Datenhoheit für ein Thema vereint.
 4. **Flankierende Leitplanken:**  
-   Die rechte Außensäule fasst die **Guiding Principles** zusammen, die als normative Heuristiken quer über alle Schichten und Zonen wirken.
+   Die rechte Außensäule fasst die **Guiding Principles** zusammen, die als überzeitliche Entscheidungsheuristiken quer über alle Schichten und Zonen wirken.
 
 ---
 
@@ -159,37 +162,37 @@ Die visuelle Komposition des ELM folgt einer strikten funktionalen Raumaufteilun
 
 Das Strukturmodell umfasst die fünf Schichten (Tiers) sowie die flankierenden Guiding Principles mit ihren jeweils klar definierten funktionalen Architekturbausteinen:
 
-### Tier 1: Governance
-Definiert den strategischen und normativen Handlungsrahmen:
-- **Strategy & Roadmap:** Strategische Zielbilder, Transformationspfade und Investitionspriorisierung.
-- **Roles & Responsibilities:** Aufbauorganisation, Ownership-Modelle (z. B. Domain Owner, Product Owner) und RACI-Zuordnungen.
-- **Standards & Guidelines:** Verbindliche Technologie-Stacks, Architekturmuster und Entwicklungsrichtlinien.
-- **Compliance & Regulatorik:** Gesetzliche, aufsichtsrechtliche und branchenspezifische Vorgaben (z. B. DORA, EU AI Act, DSGVO, ISO 27001).
+### Tier 1: Guidance (Strategische Steuerung, Organisation & Leitplanken)
+Definiert den strategischen, soziotechnischen, normativen und regulatorischen Orientierungs- und Steuerungsrahmen der Unternehmenslandschaft:
+- **Vision & Strategy:** Unternehmens- und Architektur-Vision als gemeinsamer Nordstern, strategisches Makro-Zielbild (Target Landscape) sowie wertorientierte Portfolio- und Investitionssteuerung im Spannungsfeld zwischen stabilem Betrieb und Erneuerung (Run vs. Change).
+- **People, Culture & Organization:** Soziotechnische Ausgestaltung der Organisation vom Menschen her gedacht: Entwicklung und Wertschätzung von Fähigkeiten, Rollen und individueller Selbstwirksamkeit (`People`: Skills, Agency & Mastery), getragen von gelebter Lernkultur, psychologischer Sicherheit sowie geteilten Architektur- und Engineering-Routinen (`Culture`: Enablement, Communities of Practice) und strukturell ermöglicht durch einen bewussten Team- und Domänenzuschnitt entlang der Geschäftsfähigkeiten bei gesteuerter kognitiver Last (`Organization`: Team Topologies, Inverse Conway Maneuver).
+- **Policies, Guardrails & Blueprints:** Interne architektonische Leitplanken, die die übergeordneten *Guiding Principles* in konkret prüfbare Vorgaben übersetzen: verbindliche Architektur-Richtlinien und Direktiven (`Policies`), operative Schranken zur Sicherung autonomer Entscheidungsspielräume der Teams (`Guardrails`) sowie wiederverwendbare Makro-Referenzarchitekturen und Lösungsmuster (`Blueprints`).
+- **Trust, Risk & Compliance:** Schutz- und Sorgfaltsrahmen gegenüber Kunden, Markt und Aufsicht: Vertrauen durch souveränen, ethischen Umgang mit Daten und KI als eigentlicher Nordstern (`Trust`), risikobasierte Steuerung und proportionale Schutzmaßnahmen bei IKT-, Drittparteien- und Cyber-Risiken (`Risk`) sowie die nachweisbare Einhaltung gesetzlicher und aufsichtsrechtlicher Vorgaben wie DORA, DSGVO, NIS-2 und EU AI Act (`Compliance`).
 
 ---
 
 ### Tier 2: Business Layer (Operative Wertschöpfung)
 Bildet die fachliche Wertschöpfung der Organisation ab:
-- **Value Stream:** End-to-End-Wertströme zur Erbringung von Kundennutzen.
+- **Value Streams:** End-to-End-Wertströme zur Erbringung von Kundennutzen.
 - **Business Capabilities:** Stabile, technologieunabhängige Fähigkeiten der Organisation (Differenzierung nach Core, Supporting, Generic).
-- **Prozesse:** Fachliche Abläufe mit definierter logischer und zeitlicher Reihenfolge.
-- **Experience (Gateway-Baustein):** Zugangskanäle und Interaktionspunkte (Omni-Channel-Architektur, Customer Journey Touchpoints) zur kanalneutralen Entkopplung von Kunden, Mitarbeitern, Partnern und Agenten.
+- **Business Processes:** Fachliche Abläufe mit definierter logischer und zeitlicher Reihenfolge.
+- **Experience (Gateway):** Zugangskanäle und Interaktionspunkte (Omni-Channel-Architektur, Customer Journey Touchpoints) zur kanalneutralen Entkopplung von Kunden, Mitarbeitern, Partnern und Agenten.
 
 ---
 
 ### Tier 3: System Layer (Operative Ausführung)
 Bildet die technische Software- und Ausführungslandschaft ab:
-- **Workflows & Orchestrierung:** Technische Ablaufsteuerung, Saga-Orchestrierung sowie synchrone APIs, asynchrone Queues und ereignisgesteuerte Streaming-Pipelines.
+- **Workflows & Orchestration:** Technische Ablaufsteuerung, Saga-Orchestrierung sowie synchrone APIs, asynchrone Queues und ereignisgesteuerte Streaming-Pipelines.
 - **Services & Applications:** Ausführbare Software-Einheiten: modulare Fachservices (Microservices), integrierte Standardsoftware (COTS/SaaS) und gekapselte Kernsystem-Monolithen.
-- **Integration (Gateway-Baustein):** Technische Integrationsschicht (API Gateways, Event Broker, Enterprise Messaging) zur Entkopplung system- und domänenübergreifender Kommunikation.
+- **Integration (Gateway):** Technische Integrationsschicht (API Gateways, Event Broker, Enterprise Messaging) zur Entkopplung system- und domänenübergreifender Kommunikation.
 
 ---
 
 ### Tier 4: Data Layer (Information & Semantik)
 Bildet das semantische und informationelle Fundament der Organisation:
-- **Semantik & Ontologie:** Maschinenlesbare Begrifflichkeiten (Glossare, Ontologien, Taxonomien) und domänenspezifische Informationsmodelle zur Sicherung der sprachlichen Eindeutigkeit innerhalb eines Bounded Context.
-- **Datenverträge (Contracts):** Explizite, maschinenlesbare Schnittstellen-, Schema- und Qualitätsvereinbarungen (SLAs/SLOs), die Produzenten und Konsumenten verlässlich entkoppeln.
-- **Datenprodukte (Dataproducts):** Autonome, versionierte und qualitätsgesicherte Datenbestände für operative und analytische Zwecke (inkl. Reporting-Marts, Feature Stores und Wissensgraphen) nach dem Prinzip *Data as a Product*.
+- **Semantics & Ontology:** Maschinenlesbare Begrifflichkeiten (Glossare, Ontologien, Taxonomien) und domänenspezifische Informationsmodelle zur Sicherung der sprachlichen Eindeutigkeit innerhalb eines Bounded Context.
+- **Data Contracts:** Explizite, maschinenlesbare Schnittstellen-, Schema- und Qualitätsvereinbarungen (SLAs/SLOs), die Produzenten und Konsumenten verlässlich entkoppeln.
+- **Data Products:** Autonome, versionierte und qualitätsgesicherte Datenbestände für operative und analytische Zwecke (inkl. Reporting-Marts, Feature Stores und Wissensgraphen) nach dem Prinzip *Data as a Product*.
 
 ---
 
@@ -198,13 +201,13 @@ Stellt die standardisierten technischen Basisfähigkeiten bereit:
 - **Platform & Infrastructure:** Hosting, Cloud- und On-Premises-Ressourcen, Container-Plattformen (z. B. OpenShift, Kubernetes), Developer Platforms und Delivery-Tooling (z. B. GitLab, Backstage, CI/CD-Pipelines) sowie Netzwerk.
 - **Data Storage & Management:** Operative Persistenz (RDBMS, NoSQL, Object Storage), Datensicherung und Replikation sowie technische Data-Management-Plattformen (z. B. Software-Lösungen für Datenkataloge, Metadaten-Repositories, Schema-Registries).
 - **Analytics Platform & Tooling:** Plattformwerkzeuge für DWH, Data Lakehouse, Streaming-Infrastruktur (z. B. Kafka-Clusterbetrieb), BI und ML-Infrastruktur.
-- **Observability & Resilienz:** Zentrales Telemetrie-Fundament (Logs, Metriken, Distributed Tracing), Health Checks und Notfallwiederherstellung (DR/BCM).
+- **Observability & Resilience:** Zentrales Telemetrie-Fundament (Logs, Metriken, Distributed Tracing), Health Checks und Notfallwiederherstellung (DR/BCM).
 - **Security & Identity:** Identity & Access Management (IAM), Least-Privilege-Berechtigungsmodelle, Zero-Trust-Netzwerke und Secret Management.
 
 ---
 
 ### Guiding Principles (Architektonische Leitlinien)
-Die Guiding Principles flankieren die Schichten des Modells als durchgängige architektonische Leitlinien. Während Tier 1 (Governance) den formalen und regulatorischen Steuerungsrahmen bereitstellt, bildet diese Säule den Ordnungsrahmen für die übergreifenden Gestaltungs- und Entscheidungsmaximen einer Organisation. Sie gliedern sich thematisch in drei Bereiche:
+Die Guiding Principles flankieren die Schichten des Modells als überzeitliche architektonische Gestaltungsmaximen und Entscheidungsheuristiken für Zielkonflikte (`GuidingPrinciple`). Während `Tier 1: Guidance` (insbesondere über `Policies, Guardrails & Blueprints` als `EnterpriseGuardrail`) diese Maximen aufgreift (`guides`) und in den konkreten, kontext- und zeitgebundenen Steuerungsrahmen übersetzt (*„Was gilt konkret?“*), definiert diese Außensäule die grundlegende architektonische Denk- und Abwägungsrichtung der Organisation (*„Nach welchen Maximen entscheiden wir im Zielkonflikt?“*). Sie gliedern sich thematisch in drei Bereiche:
 - **Business & Organization:** Leitlinien für Organisationsschnitt, Zusammenarbeit, Entscheidungsfindung sowie Wertstrom- und Capability-Ausrichtung (z. B. Value-Driven Alignment, Buy before Build, Business Continuity).
 - **Application & Data:** Leitlinien für Software-, Integrations- und Informationsarchitektur sowie Schnittstellen- und Datenverantwortung (z. B. Loose Coupling, API First, Data as a Product).
 - **Platform & Security:** Leitlinien für Infrastruktur, Plattformbetrieb, Automatisierung, Resilienz und Informationssicherheit (z. B. Everything as Code, Observability by Default, Secure by Design).
@@ -215,23 +218,27 @@ Die Guiding Principles flankieren die Schichten des Modells als durchgängige ar
 
 Das Zusammenspiel der Tiers und Bausteine folgt festen architektonischen Beziehungsregeln:
 
-### 5.1 Der operative Dreiklang und die Domänen-Schnittmenge
-Der operative Kern der Unternehmenslandschaft fungiert als Dreiklang aus Fachlichkeit (Tier 2), Software-Ausführung (Tier 3) und Information (Tier 4):
+### 5.1 Der operative Dreiklang, die Domänen-Schnittmenge und die Steuerungsachsen
+Der operative Kern der Unternehmenslandschaft fungiert als Dreiklang aus Fachlichkeit (Tier 2), Software-Ausführung (Tier 3) und Information (Tier 4), der aus `Tier 1: Guidance` über zwei komplementäre Wirkachsen ausgerichtet wird:
 
 1. **Die Domäne als soziotechnische Klammer (Bounded Context):**  
-   Fachdomänen bilden die primäre Gliederungs- und Verantwortungsgrenze der Organisation. Ein Bounded Context nach Domain-Driven Design (DDD) verbindet die fachlichen Capabilities und Prozesse (Tier 2), die realisierenden Applikationen, Services und Workflows (Tier 3) sowie die Verantwortung für deren Datenbestände (Tier 4 Domain Data Ownership) unter einer klaren Domänenverantwortung.
-2. **Realisierungsachse Business zu System (Realization):**  
-   - *Value Streams und Prozesse (Tier 2) steuern Workflows & Orchestrierung (Tier 3):* Jeder technische Ablauf ist direkt auf einen Geschäftsprozess rückführbar.
-   - *Business Capabilities (Tier 2) strukturieren Services & Applications (Tier 3):* Softwarekomponenten realisieren abgegrenzte fachliche Fähigkeiten (`realizes`). Während modulare Services direkt einer einzelnen Domäne zugeordnet sind (`owns`), können monolithische Systeme (wie z. B. integrierte Standardsoftware) Fähigkeiten mehrerer Domänen realisieren, wobei die Hoheit über Capabilities, Prozesse, Semantik und Datenprodukte in den jeweiligen Fachdomänen verbleibt.
-3. **Verankerung System zu Data:**  
-   - *Services und Applikationen (Tier 3) operationalisieren die Datenhoheit ihrer Domäne:* Systeme kapseln ihre internen Datenzugriffe und setzen die fachliche Datenverantwortung (Domain Data Ownership) technisch um.
-   - *Domänenübergreifende Interaktion basiert auf Semantik und Verträgen (Tier 4):* Schnittstellen und Datenaustausch basieren auf standardisierten Data Contracts und maschinenlesbaren Schemata.
-   - *Services und Applikationen publizieren und konsumieren Datenprodukte (Tier 4):* Der analytische und operative Mehrwert wird über versionierte, vertraglich zugesicherte Datenprodukte bereitgestellt.
+   Fachdomänen bilden die primäre Gliederungs- und Verantwortungsgrenze der Organisation. Ein Bounded Context nach Domain-Driven Design (DDD) verbindet die fachlichen Capabilities und Prozesse (Tier 2), die befähigenden Applikationen, Services und Workflows (Tier 3) sowie die Verantwortung für deren Datenbestände (Tier 4 Domain Data Ownership) unter einer klaren Domänenverantwortung (`owns`).
+2. **Differenzierte Steuerungsachsen aus Tier 1 (Guidance):**  
+   Tier 1 wirkt nicht pauschal auf alle Elemente, sondern leitet (`guides`) den operativen Dreiklang entlang zweier präziser Achsen, die im Data Layer (Tier 4) und in der Domäne zusammenlaufen:
+   - *Strategisch-organisatorische Achse (`Vision & Strategy` sowie `People, Culture & Organization`):* Leitet (`guides`) primär den **Business Layer (Tier 2)**, den **Data Layer (Tier 4: Semantics & Domain Data Ownership)** sowie den Zuschnitt der **Domänen**. Hier werden Wertströme und Geschäftsfähigkeiten priorisiert (`StrategicObjective`) und mit dem Team- und Verantwortungszuschnitt (`OrganizationalUnit`) sowie der fachlichen Begriffs- und Datenhoheit in Deckung gebracht.
+   - *Normativ-regulatorische Achse (`Policies, Guardrails & Blueprints` sowie `Trust, Risk & Compliance`):* Leitet und begrenzt (`guides`) sowohl den **Business Layer (Tier 2: Kritikalität von Geschäftsfunktionen, fachlicher Verarbeitungszweck und Risikoklassifizierung)** als auch den **System Layer (Tier 3)**, den **Data Layer (Tier 4: Data Contracts & Data Products)** und die **Domänen**, technisch abgesichert und durchgesetzt über die **Gateways** und die **Foundation (Tier 5)**. Hier greifen verbindliche Leitplanken (`EnterpriseGuardrail`), Referenz-Blueprints, Schutzbedarfe und regulatorische Anforderungen (`ComplianceRequirement`, z. B. DORA, DSGVO, NIS-2, EU AI Act) durchgängig vom Geschäftsprozess bis in Systemdesign, Schnittstellenverträge und Plattformkontrollen.
+3. **Befähigungs- und Nutzungsachse zwischen Business und System:**  
+   - *Value Streams und Business Processes (Tier 2) nutzen Workflows & Orchestration (Tier 3):* Jeder technische Ablauf dient einem fachlichen Geschäftsprozess (`utilizes` / `enables`).
+   - *Services & Applications (Tier 3) befähigen Business Capabilities (Tier 2):* Softwarekomponenten befähigen abgegrenzte fachliche Fähigkeiten (`enables`). Während modulare Services direkt einer einzelnen Domäne zugeordnet sind (`owns`), können gekapselte monolithische Systeme (wie z. B. integrierte Standardsoftware) Fähigkeiten mehrerer Domänen befähigen (`enables`), wobei die Eigentümerschaft (`owns`) über Capabilities, Prozesse, Semantik und Datenprodukte strikt in den jeweiligen Fachdomänen verbleibt.
+4. **Verankerung System zu Data:**  
+   - *Services & Applications (Tier 3) operationalisieren die Datenhoheit ihrer Domäne:* Systeme kapseln ihre internen Datenzugriffe und setzen die fachliche Datenverantwortung (Domain Data Ownership) technisch um.
+   - *Domänenübergreifende Interaktion basiert auf Semantics & Ontology sowie Data Contracts (Tier 4):* Schnittstellen und Datenaustausch basieren auf standardisierten Datenverträgen und maschinenlesbaren Schemata.
+   - *Services & Applications publizieren und konsumieren Data Products (Tier 4):* Der analytische und operative Mehrwert wird über versionierte, vertraglich zugesicherte Datenprodukte bereitgestellt.
 
 ### 5.2 Gateway-Schnittstellen (Übergänge des operativen Kerns)
 Die beiden Gateways steuern und schützen die Interaktionsübergänge an den Domänen- und Systemgrenzen und verankern diese im semantischen und vertraglichen Fundament des Data Layers (Tier 4):
-- **Experience-Gateway (Kanal- und Nutzerentkopplung):** Entkoppelt menschliche Akteure und Agenten in den Zugangskanälen (Tier 2) von technischen Systemdetails (Tier 3). Interaktionen erfolgen über klar geschnittene Geschäftsfähigkeiten und Datenprodukte auf Basis der jeweiligen Domänensemantik (Tier 4), unabhängig von Endgeräten, UI-Frameworks oder physischen Kanälen.
-- **Integration-Gateway (System- und Partnerentkopplung):** Kapselt die maschinelle Interaktion zwischen Systemen, Domänen und Drittanbietern (Tier 3) und bindet den Datenaustausch verbindlich an maschinenlesbare Schnittstellenverträge (Contracts in Tier 4), API-Management und Event-Broker, unabhängig vom technischen Übertragungsprotokoll (REST, Event-Driven, Messaging).
+- **Experience-Gateway (Kanal- und Nutzerentkopplung):** Entkoppelt menschliche Akteure und Agenten in den Zugangskanälen (Tier 2) von technischen Systemdetails (Tier 3). Interaktionen erfolgen über klar geschnittene Geschäftsfähigkeiten und Data Products auf Basis der jeweiligen Domänensemantik (Tier 4), unabhängig von Endgeräten, UI-Frameworks oder physischen Kanälen.
+- **Integration-Gateway (System- und Partnerentkopplung):** Kapselt die maschinelle Interaktion zwischen Systemen, Domänen und Drittanbietern (Tier 3) und bindet den Datenaustausch verbindlich an maschinenlesbare Data Contracts (Tier 4), API-Management und Event-Broker, unabhängig vom technischen Übertragungsprotokoll (REST, Event-Driven, Messaging).
 
 ### 5.3 Domänenübergreifende Interaktion und Entkopplungsregeln
 Während die Schichten-Interaktionsmatrix (Abschnitt 5.5) die vertikalen Beziehungen zwischen den fünf Tiers regelt, gelten für die horizontale Interaktion über Domänen- und Systemgrenzen hinweg drei verbindliche Entkopplungsregeln:
@@ -240,25 +247,25 @@ Während die Schichten-Interaktionsmatrix (Abschnitt 5.5) die vertikalen Beziehu
 - **Schutz der Außengrenzen über Gateways:** Kanal-, Agenten- und Partnerzugriffe sowie domänenübergreifende Systemintegrationen werden über die jeweiligen Gateways (`ExperienceGateway` bzw. `IntegrationGateway`) geführt, um Authentifizierung, Schema-Validierung und Ratenbegrenzung durchzusetzen.
 
 ### 5.4 Rückkopplungsbeziehungen (Feedback-Schleifen)
-Architekturbeziehungen sind keine Einbahnstraße. Aggregierte Informationen und Messwerte fließen strukturiert zurück, um operative Ausführung und fachliche Weiterentwicklung zu speisen:
-- **Datenprodukte (Tier 4) steuern Workflows & Orchestrierung (Tier 3):** Analytische und inferierende Datenprodukte (z. B. Scoring-Modelle, Klassifikatoren) werden von Workflow-Engines konsumiert, um Verzweigungen automatisiert und datenbasiert in Echtzeit zu steuern (*operative Rückkopplung*).
-- **Datenprodukte (Tier 4) informieren und optimieren den Business Layer (Tier 2):** Aggregierte Datenprodukte (Reporting-Marts, Nutzungs- und KPI-Analysen) liefern die empirische Basis für Prozessanpassungen, Touchpoint-Optimierungen (Experience) und strategische Capability-Investitionen (*fachlich-analytische Rückkopplung*).
-- **Observability & Resilienz (Tier 5) optimiert Prozesse und Workflows (Tier 2/3):** Laufzeitmetriken zu Durchlaufzeiten, Fehlerraten und Systemlatenzen decken operative Engpässe auf und treiben die kontinuierliche Fehlerbeseitigung (*diagnostische Rückkopplung*).
+Architekturbeziehungen sind keine Einbahnstraße. Aggregierte Informationen, Telemetrie und Evidenzen fließen strukturiert zurück, um operative Ausführung, fachliche Weiterentwicklung und strategisch-regulatorische Steuerung zu speisen:
+- **Data Products (Tier 4) steuern Workflows & Orchestration (Tier 3):** Analytische und inferierende Datenprodukte (z. B. Scoring-Modelle, Klassifikatoren) werden von Workflow-Engines konsumiert, um Verzweigungen automatisiert und datenbasiert in Echtzeit zu steuern (*operative Rückkopplung*).
+- **Data Products (Tier 4) informieren und optimieren den Business Layer (Tier 2):** Aggregierte Datenprodukte (Reporting-Marts, Nutzungs- und KPI-Analysen) liefern die empirische Basis für Prozessanpassungen, Touchpoint-Optimierungen (Experience) und Capability-Investitionen (*fachlich-analytische Rückkopplung*).
+- **Observability & Resilience (Tier 5) optimiert Business Processes und Workflows (Tier 2/3):** Laufzeitmetriken zu Durchlaufzeiten, Fehlerraten und Systemlatenzen decken operative Engpässe auf und treiben die kontinuierliche Fehlerbeseitigung (*diagnostische Rückkopplung*).
+- **Data Products (Tier 4) speisen Tier 1 (Guidance) mit verdichteter Steuerungs- und Compliance-Evidenz:** Operative Ergebnisse aus Wertströmen und Systemen (Tier 2/3) sowie Laufzeit-, Sicherheits- und Resilienz-Telemetrie aus der Foundation (Tier 5) werden im Data Layer (Tier 4) mit fachlicher Semantik verknüpft und als qualitätsgesicherte Datenprodukte bereitgestellt. Diese befähigen (`enables`) in Tier 1 die faktenbasierte Strategie- und Portfolio-Steuerung (`Vision & Strategy`), die Überprüfung von Leitplanken (`Policies, Guardrails & Blueprints`) und die kontinuierliche Risiko- und Compliance-Nachweisführung (`Trust, Risk & Compliance`) (*strategische und regulatorische Rückkopplung*).
 
 ### 5.5 Schichten-Interaktionsmatrix
 
-Die zulässigen Interaktionsbeziehungen zwischen den fünf Schichten des Referenzmodells werden über eine formale Kantenmatrix gesteuert. Während die Relation `owns` (Abschnitt 2.2) die schichtenübergreifende Eigentumsklammer der Domäne bildet (Abschnitt 5.1), projiziert die Matrix die vier gerichteten Interaktionsrelationen (`governs`, `realizes`, `enables`, `utilizes`) auf das Zusammenspiel der Schichten. Jede Zelle definiert, welche Beziehungssemantik von der Quellschicht (Zeile) in Richtung der Zielschicht (Spalte) architektonisch zulässig ist. Nicht unmittelbar miteinander interagierende oder getrennte Schichten sind als `n/a` gekennzeichnet:
+Die zulässigen Interaktionsbeziehungen zwischen den fünf Schichten des Referenzmodells werden über eine formale Kantenmatrix gesteuert. Während die Relation `owns` (Abschnitt 2.2) die schichtenübergreifende Eigentumsklammer der Domäne bildet (Abschnitt 5.1), projiziert die Matrix die drei gerichteten Schichtenrelationen (`guides`, `enables`, `utilizes`) auf das Zusammenspiel der Tiers. Jede Zelle bildet die dominierende Primärrelation von der Quellschicht (Zeile) in Richtung der Zielschicht (Spalte) ab; dabei stehen die Nutzungsrichtung von oben nach unten (`utilizes`) und die Befähigungsrichtung von unten nach oben (`enables`) komplementär zueinander. Nicht unmittelbar miteinander interagierende Schichten sind als `n/a` gekennzeichnet:
 
-| Quelle (Zeile) \ Ziel (Spalte) | Tier 1: Governance | Tier 2: Business | Tier 3: System | Tier 4: Data | Tier 5: Foundation |
+| Quelle (Zeile) \ Ziel (Spalte) | Tier 1: Guidance | Tier 2: Business | Tier 3: System | Tier 4: Data | Tier 5: Foundation |
 |---|---|---|---|---|---|
-| **Tier 1: Governance** | — | governs | governs | governs | governs |
+| **Tier 1: Guidance** | — | guides | guides | guides | guides |
 | **Tier 2: Business** | n/a | — | utilizes | utilizes | n/a |
-| **Tier 3: System** | n/a | realizes | utilizes | utilizes | utilizes |
-| **Tier 4: Data** | n/a | enables | enables | — | utilizes |
+| **Tier 3: System** | n/a | enables | utilizes | utilizes | utilizes |
+| **Tier 4: Data** | enables | enables | enables | — | utilizes |
 | **Tier 5: Foundation** | n/a | n/a | enables | enables | — |
 
 **Projektion der Metamodell-Kanten auf die Schichten:**
-- `governs`: Tier 1 setzt normative Leitplanken, Richtlinien, RACI-Rollen und Technologievorgaben für alle operativen und infrastrukturellen Schichten durch.
-- `realizes`: Technische Applikationen und Workflows (Tier 3) realisieren die fachlichen Fähigkeiten (Capabilities) und Geschäftsprozesse (Tier 2).
-- `enables`: Zugrundeliegende Plattformfähigkeiten (Tier 5) befähigen Systeme und Daten mit Laufzeit-, Speicher- und Resilienzressourcen; der Data Layer (Tier 4) befähigt Fachlichkeit und Software-Ausführung mit verlässlicher Information und Semantik.
-- `utilizes`: Fachprozesse (Tier 2) nutzen Applikationen und Daten; Applikationen (Tier 3) nutzen andere Applikationen (z. B. Workflows nutzen Services), Datenprodukte und Plattformdienste; Datenprodukte nutzen physische Persistenz- und Kataloginfrastrukturen der Foundation.
+- `guides`: Tier 1 (Guidance) leitet und rahmt die darunterliegenden Schichten über zwei komplementäre Achsen: Strategische Ziele und Organisationsschnitt (`StrategicObjective`, `OrganizationalUnit`) richten primär Tier 2 (Business), Tier 4 (Data Ownership & Semantik) und die Domänen aus, während verbindliche Leitplanken sowie Risiko- und Compliance-Anforderungen (`EnterpriseGuardrail`, `ComplianceRequirement`) durchgängig von den Geschäftsprozessen und kritischen Funktionen (Tier 2) über Systemdesign (Tier 3), Datenverträge und Datenprodukte (Tier 4) sowie Domänen bis in die technischen Kontrollen der Foundation (Tier 5) wirken.
+- `enables`: Jede dienende Schicht befähigt die darüberliegenden Ebenen: Plattformfähigkeiten (Tier 5) befähigen Systeme und Daten mit Laufzeit-, Speicher-, Sicherheits- und Telemetrieressourcen; der Data Layer (Tier 4) befähigt Software-Ausführung (Tier 3) und Fachlichkeit (Tier 2) mit verlässlicher Information und Semantik sowie Tier 1 (Guidance) mit aggregierten, semantisch kontextualisierten Steuerungs-, Risiko- und Compliance-Datenprodukten; Applikationen und Workflows (Tier 3) befähigen die Geschäftsprozesse und Business Capabilities (Tier 2).
+- `utilizes`: Komplementäre Nutzungsrichtung zu `enables`: Fachprozesse (Tier 2) nutzen Applikationen und Datenprodukte; Applikationen (Tier 3) nutzen andere Applikationen (z. B. Workflows nutzen Services), Datenprodukte und Plattformdienste; Datenprodukte (Tier 4) nutzen physische Persistenz-, Telemetrie- und Kataloginfrastrukturen der Foundation (Tier 5).

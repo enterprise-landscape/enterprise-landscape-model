@@ -14,7 +14,7 @@
 | Baustein | Version | Funktion im Case | Spezifische Anpassungen |
 |---|---|---|---|
 | [Architekturreview — Canvas](../canvases/review-canvas.md) | v0.1 | Basis-Struktur des Reviews | Keine |
-| [Thematisches Overlay: KI-Ready Systemlandschaften](../overlays/ai-readiness/ai-readiness-overlay.md) | v0.4 | Diagnostische Prüflinse & Overlay für Landschaftsfähigkeit | Fokus auf Governance und unternehmenskritische Kernprozesse |
+| [Thematisches Overlay: KI-Ready Systemlandschaften](../overlays/ai-readiness/ai-readiness-overlay.md) | v0.4 | Diagnostische Prüflinse & Overlay für Landschaftsfähigkeit | Fokus auf Tier 1: Guidance und unternehmenskritische Kernprozesse |
 
 ---
 

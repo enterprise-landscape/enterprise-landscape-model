@@ -28,7 +28,7 @@ Das **Enterprise Landscape Model (ELM)** definiert einen verbindlichen strukture
 
 | Artefakt | Typ | Beschreibung & Nutzen | Quelle / Ablage | Status / Reife |
 |---|---|---|---|---|
-| **[Kernmodell: Spezifikation](model/specification.md)** | Referenzmodell | ELM Lean Metamodel (Formale Ontologie), fünf Tiers, Entkopplungsgateways, $5 \times 5$ Interaktionsmatrix und Guiding Principles | `model/specification.md` | v0.8 (Public Preview) |
+| **[Kernmodell: Spezifikation](model/specification.md)** | Referenzmodell | ELM Lean Metamodel (Formale Ontologie), fünf Tiers (`Tier 1: Guidance` bis `Tier 5: Foundation`), Entkopplungsgateways, $5 \times 5$ Interaktionsmatrix und Guiding Principles | `model/specification.md` | v0.8 (Public Preview) |
 | **[Segment: Business Layer](model/segments/business-layer.md)** | Segment-Spezifikation | Vertikaler Zoom-in in Tier 2: Wertströme, Capabilities und Bounded Contexts | `model/segments/business-layer.md` | v0.1 (Entwurf) |
 | **[Thematisches Overlay: AI-Readiness](overlays/ai-readiness/ai-readiness-overlay.md)** | Thematisches Overlay | Transversale Projektion über alle 5 Tiers: Prüflinse entlang D1 bis D6 mit K.o.-Kriterien | `overlays/ai-readiness/` | v0.4 (Pilotierung) |
 | **[Architekturreview — Canvas](canvases/review-canvas.md)** | Canvas | Interaktive Arbeitsfläche für strukturierte Architektur-Reviews | `canvases/review-canvas.md` | v0.1 (Arbeitsvorlage) |
@@ -46,7 +46,7 @@ enterprise-landscape-model/
 ├── LICENSE.md                                 # 100 % CC BY 4.0 Lizenzvereinbarung
 │
 ├── model/                                     # Das Kernmodell (Enterprise Landscape Model)
-│   ├── specification.md                       # Normative Spezifikation (Lean Metamodel, 5 Tiers, Gateways, Guiding Principles)
+│   ├── specification.md                       # Normative Spezifikation (Lean Metamodel, 5 Tiers ab Tier 1: Guidance, Gateways, Guiding Principles)
 │   ├── segments/                              # Schichten-Vertiefungen (z. B. business-layer.md)
 │   └── assets/                                # Grafiken & Präsentationsvorlagen
 │       ├── enterprise-landscape-model.png

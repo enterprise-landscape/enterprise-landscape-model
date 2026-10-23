@@ -48,7 +48,7 @@ Alle Kriterien in diesem Dokument weisen ihre Verbindlichkeit und Verlässlichke
 
 Dieses Dokument ist ein **thematisches Overlay** über dem [Enterprise Landscape Reference Model](../../model/specification.md). Ein thematisches Overlay führt kein isoliertes Schichtenmodell ein, sondern projiziert eine themenspezifische Fragestellung (hier die dauerhafte, sichere und wirtschaftliche KI-Readiness) transversal über die kanonischen Ebenen der Unternehmenslandschaft:
 
-- **Verankerung in den 5 Tiers:** Jede Anforderung dockt an eine bestehende architektonische Ebene an (Tier 1 bis 5: Governance, Business Layer, System Layer, Data Layer, Foundation).
+- **Verankerung in den 5 Tiers:** Jede Anforderung dockt an eine bestehende architektonische Ebene an (Tier 1 bis 5: Guidance, Business Layer, System Layer, Data Layer, Foundation).
 - **Nutzung der Gateway-Schnittstellen:** Die Interaktion zwischen Menschen, Partnersystemen und KI-Akteuren wird über die definierten Gateways an den Übergängen des Modells kontrolliert (Experience für Mensch/Agent ↔ Business & Data, Integration für Tools/Systeme ↔ System & Data).
 - **Spezialisierung der Guiding Principles:** Übergreifende Gestaltungsrichtlinien (z. B. Data as a Product, Zero Trust, Loose Coupling) werden für die Besonderheiten stochastischer und autonomer Komponenten geschärft.
 
@@ -121,7 +121,7 @@ Das Overlay verankert die Anforderungen für KI direkt in den fünf Tiers, den G
 
 | Tier im Referenzmodell | KI-spezifische Soll-Eigenschaften und Bausteine | Prüfdimension |
 |---|---|---|
-| **Tier 1: Governance** | Zentrales Use-Case- und Modellregister, Risikoklassifizierung nach EU AI Act, Zweckbindung by Design, manipulationssicherer Audit-Trail für Entscheidungen, definierte Rollen für menschliche Aufsicht. | **D6: Leitplanken** |
+| **Tier 1: Guidance** | Zentrales Use-Case- und Modellregister, Risikoklassifizierung nach EU AI Act, Zweckbindung by Design, manipulationssicherer Audit-Trail für Entscheidungen, definierte Rollen für menschliche Aufsicht. | **D6: Leitplanken** |
 | **Tier 2: Business Layer** | Business Capabilities als Träger von KI-Potenzial, langlebiger Domänenschnitt vor Automatisierung, explizite Übergabepunkte für menschliche Aufsicht, Gateway Experience als adaptives Mensch-Maschine-Interface mit Konfidenzanzeige. | **D1: Handlungsraum**<br>**D4: Prozessführung** |
 | **Tier 3: System Layer** | Workflow-Engine zur Kapselung probabilistischer Inferenz, deterministische Rule- und Decision-Services, maschinenlesbare Schnittstellenverträge, Tool-Registry mit Rechtebegrenzung, Gateway Integration mit Event-Backbone, Idempotenz und Rate Limiting. | **D3: Werkzeuge**<br>**D4: Prozessführung** |
 | **Tier 4: Data Layer** | Domänenverantwortung für Daten und Semantik je Bounded Context, maschinenlesbare Ontologien, Schemata und Data Contracts, kuratierte operative und analytische Datenprodukte, Feature Stores und Vektorindizes. | **D2: Wissensbasis** |
@@ -213,7 +213,7 @@ Der Kriterienkatalog operationalisiert die sechs Dimensionen für die architekto
 
 **Architektonische Relevanz:** Modellintelligenz ist zukaufbar, organisationsspezifische Datensemantik nicht. Ohne formalisierte Semantik und verlässliche Datenprodukte führen probabilistische Modelle zu Halluzinationen, Datenlecks und Prozessbrüchen.
 
-**Verankerung im Referenzmodell:** Tier 4 (Data Layer: Semantik und Datenprodukte)  
+**Verankerung im Referenzmodell:** Tier 4 (Data Layer: Semantics & Ontology, Data Contracts, Data Products)  
 
 #### Bausteine und Mindestanforderungen
 
@@ -256,7 +256,7 @@ Der Kriterienkatalog operationalisiert die sechs Dimensionen für die architekto
 
 **Architektonische Relevanz:** Autonome Agenten agieren über Werkzeuge. Die Reife, Entkopplung und Idempotenz der Integrationsschicht bestimmt den realisierbaren Automatisierungsgrad und schützt operative Kernsysteme vor unkontrollierten Zugriffen.
 
-**Verankerung im Referenzmodell:** Tier 3 (System Layer, Services & Applications und Gateway Integration)  
+**Verankerung im Referenzmodell:** Tier 3 (System Layer: Services & Applications, Integration Gateway)  
 
 #### Bausteine und Mindestanforderungen
 
@@ -301,7 +301,7 @@ Der Kriterienkatalog operationalisiert die sechs Dimensionen für die architekto
 
 **Architektonische Relevanz:** Probabilistische Inferenz darf niemals unkontrollierte Zustandsänderungen an Kern- und Transaktionssystemen auslösen. Deterministische Workflow-Engines und Kontrollschranken kapseln nicht-deterministische Modellvorschläge und sichern die Prozessintegrität durch definierte Übergabepunkte an den Menschen.
 
-**Verankerung im Referenzmodell:** Tier 3 (System Layer, Workflows & Orchestrierung) und Tier 2 (Prozesse)  
+**Verankerung im Referenzmodell:** Tier 3 (System Layer: Workflows & Orchestration) und Tier 2 (Business Layer: Business Processes)  
 
 #### Bausteine und Mindestanforderungen
 
@@ -347,7 +347,7 @@ Der Kriterienkatalog operationalisiert die sechs Dimensionen für die architekto
 
 **Architektonische Relevanz:** Nicht-deterministische Komponenten ohne kontinuierliche Messung sind im Unternehmenseinsatz nicht beherrschbar. Klassisches Infrastruktur-Monitoring reicht nicht aus, denn stochastisches Modellverhalten, fachliche Prozesswirkung und Notabschaltungen müssen zur Laufzeit lückenlos beobachtbar sein.
 
-**Verankerung im Referenzmodell:** Tier 5 (Foundation, Observability und Resilienz)  
+**Verankerung im Referenzmodell:** Tier 5 (Foundation: Observability & Resilience)  
 
 #### Bausteine und Mindestanforderungen
 
@@ -393,7 +393,7 @@ Der Kriterienkatalog operationalisiert die sechs Dimensionen für die architekto
 
 **Architektonische Relevanz:** Regulatorische Konformität und Datensouveränität sind harte Architekturanforderungen und keine nachgelagerten Governance-Audits. Nachträgliche Härtung erfordert bei produktiven Systemen regelmäßig den vollständigen Neubau der Daten- und Entscheidungspfade.
 
-**Verankerung im Referenzmodell:** Tier 1 (Governance) und Leitprinzipien (Platform & Security)  
+**Verankerung im Referenzmodell:** Tier 1 (Guidance) und Leitprinzipien (Platform & Security)  
 
 #### Bausteine und Mindestanforderungen
 
@@ -488,18 +488,18 @@ Zur Kommunikation und Visualisierung in Architecture Boards wird die abgeleitete
 
 ```
 ┌─────────────────────────────────────────────────────────────────────────────────────────────┬───────────────────────────┐
-│ Governance (Tier 1)                                                                         │ Guiding Principles        │
+│ Guidance (Tier 1)                                                                           │ Guiding Principles        │
 │   [ D6: Leitplanken (Regulatorik und Souveränität) ]                                        │                           │
 ├────────────────────────────────────────┬────────────────────────────────────────────────────┤  Business & Organization  │
 │ Business Layer (Tier 2)                │ Experience (Gateway)                               │  - Domain Autonomy        │
-│   Value Stream                         │   [ Human-in-the-Loop, Adaptive UI, Explainability]│  - Conway's Law           │
+│   Value Streams                        │   [ Human-in-the-Loop, Adaptive UI, Explainability]│  - Conway's Law           │
 │   Business Capabilities                ├───────────────┐                                    │                           │
-│   Prozesse                             │    Domänen    │                                    │                           │
-│   [ D1: Handlungsraum (Fachliche       │               │                                    ├───────────────────────────┤
-│         Domänen und Capabilities) ]    │   Semantik    │ Data Layer (Tier 4)                │  Application & Data       │
-├─────────────────── Alignment ──────────┤               │   [ D2: Wissensbasis (Daten und    │  - Data as a Product      │
-│ System Layer (Tier 3)                  │ Datenprodukte │         Semantik) ]                │  - Contract-First         │
-│   Workflows & Orchestrierung           ├───────────────┘                                    │                           │
+│   Business Processes                   │    Domains    │ Data Layer (Tier 4)                │                           │
+│   [ D1: Handlungsraum (Fachliche       │   (Bounded    │   Semantics & Ontology             ├───────────────────────────┤
+│         Domänen und Capabilities) ]    │   Contexts)   │   Data Contracts                   │  Application & Data       │
+├─────────────────── Alignment ──────────┤               │   Data Products                    │  - Data as a Product      │
+│ System Layer (Tier 3)                  │               │   [ D2: Wissensbasis (Daten und    │  - Contract-First         │
+│   Workflows & Orchestration            ├───────────────┘         Semantik) ]                │                           │
 │   Services & Applications              │ Integration (Gateway)                              ├───────────────────────────┤
 │   [ D4: Prozessführung (Abläufe und    │   [ D3: Werkzeuge (Funktionen und Tools) ]         │  Platform & Security      │
 │         Kontrollschranken) ]           │                                                    │  - Zero Trust             │

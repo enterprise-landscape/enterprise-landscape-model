@@ -26,7 +26,7 @@ Je Linse nur so weit ausfüllen, wie es für den Fall relevant ist. Eine Referen
 
 ## 3. Herleitung und Zusammenhänge
 
-Skizze des für diesen Fall relevanten Pfads — kein vollständiges Pflichtmodell:
+Skizze des für diesen Fall relevanten Pfads, kein vollständiges Pflichtmodell:
 
 **Treiber / Anforderungen → Ziele → fachliche Strukturen → Domänen und Abhängigkeiten → Nutzer:innen, Daten und Systeme → Querschnitt, Standards und Zukunftsthemen**
 
